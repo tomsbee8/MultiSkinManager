@@ -1,0 +1,4 @@
+rootProject.name='MultiSkinManager'
+include ':app'
+include ':skinpack'
+include ':library'

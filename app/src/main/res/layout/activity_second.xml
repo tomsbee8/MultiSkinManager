@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_1"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="示例页面二"
+        android:textColor="@color/color_text_1"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_two"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="插件式换肤"
+        android:textColor="@color/color_text_1"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_one"
+        app:layout_constraintBottom_toTopOf="@+id/iv_one"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_one"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_two"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_one" />
+
+    <Button
+        android:id="@+id/btn_one"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/color_white"
+        android:text="确定"
+        app:layout_constraintTop_toBottomOf="@+id/iv_one"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
