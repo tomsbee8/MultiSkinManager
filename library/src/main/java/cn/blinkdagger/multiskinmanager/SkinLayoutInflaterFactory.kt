@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import cn.blinkdagger.multiskinmanager.entity.AttrributeParams
 import java.lang.reflect.Constructor
 
@@ -57,9 +58,7 @@ class SkinLayoutInflaterFactory(attrObserver: ViewSkinObserver) : LayoutInflater
                     val attrName = attrs.getAttributeName(index)
                     val attrValue = attrs.getAttributeValue(index)
                     params.add(AttrributeParams(attrName,attrValue))
-                    if(name.contains("toolbar",true)){
-                        Log.d("ToolBarATttr", "name = $attrName  value = $attrValue")
-                    }
+                    Log.d("ViewName", "name = $name")
                 }
                 mAttrManager.applySkin(it, params)
                 mAttrManager.cacheViewAttributeData(it, params)

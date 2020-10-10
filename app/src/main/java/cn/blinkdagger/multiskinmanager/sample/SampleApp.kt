@@ -13,7 +13,7 @@ import cn.blinkdagger.multiskinmanager.resources.SkinResourceManager
  * @Description
  * @Version
  */
-class App : Application() {
+class SampleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()

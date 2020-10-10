@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.content.res.AssetManager
 import android.content.res.Resources
 import android.content.res.Resources.Theme
+import android.util.Log
 import cn.blinkdagger.multiskinmanager.SkinPathPreference
 import cn.blinkdagger.multiskinmanager.listener.OnApplySkinListener
 import java.io.File
@@ -70,7 +71,7 @@ class SkinResourceManager() : Observable() {
                 proxyResource = ProxyResource(appResource.assets, appResource.displayMetrics, appResource.configuration)
 
                 // 获取皮肤包的包名
-                val packPkgName: String? = context.packageManager.getPackageArchiveInfo(packPath, PackageManager.GET_ACTIVITIES).packageName
+                val packPkgName: String? = context.packageManager.getPackageArchiveInfo(packPath, PackageManager.GET_ACTIVITIES)?.packageName
                 packPkgName?.let {
                     useSkinResources = true
                     proxyResource?.prepare(skinPackResources, appResource, packPkgName)
@@ -86,9 +87,12 @@ class SkinResourceManager() : Observable() {
                     listener?.onApplySkinSuccess(packPath)
                 } ?: kotlin.run {
                     // 皮肤包文件错误
+                    Log.e("MultiSkinManager","")
                     listener?.onSkinPackageError()
                 }
             } catch (e: Exception) {
+                Log.e("MultiSkinManager",e.localizedMessage)
+                e.printStackTrace()
                 listener?.onApplySkinException(e)
             }
         } else {

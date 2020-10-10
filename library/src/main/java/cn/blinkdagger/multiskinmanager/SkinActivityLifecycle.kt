@@ -58,7 +58,6 @@ class SkinActivityLifecycle : Application.ActivityLifecycleCallbacks {
 
     override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
         activity?.let { context ->
-
             // 对xml布局支持换肤
             var layoutInflater = LayoutInflater.from(context)
             val mLayoutField = LayoutInflater::class.java.getDeclaredField("mFactorySet")
@@ -69,7 +68,7 @@ class SkinActivityLifecycle : Application.ActivityLifecycleCallbacks {
             LayoutInflaterCompat.setFactory2(layoutInflater, newFactory2)
 
             // 添加观察者
-            mObserverMap[activity.hashCode()] = attrObserver
+            mObserverMap[context.hashCode()] = attrObserver
             SkinResourceManager.instance.addObserver(attrObserver)
         }
     }

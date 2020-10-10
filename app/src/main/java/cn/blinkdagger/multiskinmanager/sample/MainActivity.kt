@@ -25,12 +25,6 @@ class MainActivity : AppCompatActivity() {
         Environment.getExternalStorageDirectory().absolutePath + File.separator.toString() + SKIN_NAME
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // 设置主题
-        val originTheme = getTheme()
-        val themeName = ThemeUtil.getThemeResName(this, originTheme)
-        SkinResourceManager.instance.getProxyTheme(themeName) ?.let {
-            it.setTo(originTheme)
-        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
